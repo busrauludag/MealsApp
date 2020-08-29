@@ -58,7 +58,7 @@ CategoriesScreen.navigationOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.white
   },
-  headerTitntColor: Platform.OS === 'android' ? Colors.white : Colors.primaryColor
+  headerTintColor: Platform.OS === 'android' ? Colors.white : Colors.primaryColor
 }
 
 
