@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   title: {
-    fontSize: 'open-sans-bold',
+    fontFamily: 'open-sans-bold',
     fontSize: 21,
     textAlign: 'right'
   }
