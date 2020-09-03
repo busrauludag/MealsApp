@@ -8,11 +8,20 @@ import {
 
 import { CATEGORIES, MEALS } from './../data/dummy-data';
 
+import MealItem from './../components/MeaItem';
+
 const CategoryMealsScreen = props => {
 
   const renderMealItem = itemData => {
     return (
-      <View><Text>{itemData.item.title}</Text></View>
+      <MealItem
+        image={itemData.item.imageUrl}
+        title={itemData.item.title}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        onSelectModal={() => { }}
+      />
     );
   }
 
@@ -25,10 +34,11 @@ const CategoryMealsScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <FlatList 
-        keyExtractor={(item) => item.id} 
+      <FlatList
+        keyExtractor={(item) => item.id}
         renderItem={renderMealItem}
         data={displayedMeals}
+        style={{ width: '100%' }}
       />
 
       {/* <Button title='Go To Meal Detail!' onPress={() => {
