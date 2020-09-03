@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Text,
   View,
-  Flatlist,
+  FlatList,
   StyleSheet
 } from 'react-native';
 
@@ -25,12 +25,11 @@ const CategoryMealsScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <Flatlist
-        data={displayedMeals}
-        keyExtractor={(item, index) => item.id}
+      <FlatList 
+        keyExtractor={(item) => item.id} 
         renderItem={renderMealItem}
+        data={displayedMeals}
       />
-
 
       {/* <Button title='Go To Meal Detail!' onPress={() => {
         props.navigation.navigate({ routeName: 'MealDetail' });

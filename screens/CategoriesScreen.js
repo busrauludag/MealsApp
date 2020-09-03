@@ -32,7 +32,7 @@ const CategoriesScreen = props => {
   return (
     <View style={styles.categoryListContainer}>
       <FlatList
-        keyExtractor={(item, index) => { item.id }}
+        keyExtractor={(item) => { item.id }}
         renderItem={renderGridItem}
         data={CATEGORIES}
         numColumns={2}
