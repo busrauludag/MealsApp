@@ -1,8 +1,11 @@
 import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import { CATEGORIES, MEALS } from './../data/dummy-data';
 
-import MealList from './../components/MeaIList';
+import MealList from './../components/MealList';
+
+import Colors from './../constants/Colors';
 
 const CategoryMealsScreen = props => {
 
@@ -14,7 +17,9 @@ const CategoryMealsScreen = props => {
   );
 
   return (
-    <MealList listData={displayedMeals} navigation={props.navigation} />
+    <ScrollView style={styles.screen}>
+      <MealList listData={displayedMeals} navigation={props.navigation} />
+    </ScrollView>
   );
 }
 
@@ -26,5 +31,11 @@ CategoryMealsScreen.navigationOptions = (navigationData) => {
     headerTitle: selectedCategory.title,
   }
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: Colors.white
+  }
+});
 
 export default CategoryMealsScreen;
