@@ -1,10 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { CATEGORIES } from './../data/dummy-data';
 
 import MealList from './../components/MealList';
+import DefaultText from '../components/DefaultText';
 
 import Colors from './../constants/Colors';
 
@@ -18,6 +19,14 @@ const CategoryMealsScreen = props => {
   const displayedMeals = availableMeals.filter(
     meal => meal.categoryIds.indexOf(catId) >= 0
   );
+
+  if(displayedMeals.length === 0){
+    return(
+      <View style={styles.content}>
+        <DefaultText>No meals found, maybe check your filters?</DefaultText>
+      </View>
+    )
+  }
 
   return (
     <ScrollView style={styles.screen}>
@@ -38,6 +47,11 @@ CategoryMealsScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: Colors.white
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
